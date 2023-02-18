@@ -3,63 +3,63 @@
 
 
 int g_DefaultArraySize = 200;
-enum State {WORKING = 1, FAILED = -1};
+enum State {HOATDONG = 1, KHONGHOATDONG = -1};
 //Ham khoi tao mang
-int khoiTaoMang(int arraySize) {
-    if (arraySize > g_DefaultArraySize) {
-        return FAILED;
+int khoiTaoMang(int ktMang) {
+    if (ktMang > g_DefaultArraySize) {
+        return KHONGHOATDONG;
     }
-    return arraySize;
+    return ktMang;
 }
 //Ham nhap mang
-int nhapMang(int array[],int arraySize) {
+int nhapMang(int array[],int ktMang) {
 	int i;
-    printf("\nNhap %d phan tu vao mang: ", arraySize);
-    for (i = 0; i < arraySize; i++) {
+    printf("\nNhap %d phan tu vao mang: ", ktMang);
+    for (i = 0; i < ktMang; i++) {
         scanf("%d", &array[i]);
     }
-    return WORKING;
+    return HOATDONG;
 }
 //Ham hien thi mang
-int hienThiMang(int array[],int arraySize) {
+int hienThiMang(int array[],int ktMang) {
 	int i;
     printf("\nHien thi mang: ");
-    for (i = 0; i < arraySize; i++) {
+    for (i = 0; i < ktMang; i++) {
         printf("%d ", array[i]);
     }
-    return WORKING;
+    return HOATDONG;
 }
 //Ham them phan tu
-int themPhanTu(int array[],int *arraySize,int number,int position) {
+int themPhanTu(int array[],int  ktMang,int so,int vitri) {
 	int i;
-    for (i = *arraySize; i > position; i--) {
+    for (i =  ktMang; i > vitri; i--) {
         array[i] = array[i - 1];
     }
-    array[position] = number;
-    *arraySize = *arraySize + 1;
-    return WORKING;
+    array[vitri] = so;
+     ktMang =  ktMang + 1;
+    return HOATDONG;
 }
 //Ham xoa phan tu
-int xoaPhanTu(int array[],int *arraySize,int position) {
+int xoaPhanTu(int array[],int  ktMang,int vitri) {
 	int i;
-    for (i = position; i < (*arraySize - 1); i++) {
+    for (i = vitri; i < ( ktMang - 1); i++) {
         array[i] = array[i + 1];
     }
-    *arraySize = *arraySize - 1;
-    return WORKING;
+     ktMang =  ktMang - 1;
+    return HOATDONG;
 }
 //Ham thay doi 2 gia tri trong mang voi nhau
-int swap(int *value1,int *value2) {
-    int temp = *value1;
-    *value1 = *value2;
-    *value2 = temp;
-    return WORKING;
+int swap(int *giatri1,int *giatri2) {
+    int temp = *giatri1;
+    *giatri1 = *giatri2;
+    *giatri2 = temp;
+    return HOATDONG;
 }
 //Ham sap xep cac gia tri cua mang giam dan
-int sapXepGiamDan(int array[],int arraySize) {
+int sapXepGiamDan(int array[],int ktMang) {
 	int i,j;
-    for (i = 0; i < arraySize - 1; i++) {
-        for (j = i + 1; j < arraySize; j++) {
+    for (i = 0; i < ktMang - 1; i++) {
+        for (j = i + 1; j < ktMang; j++) {
             if (array[i] < array[j]) {
                 swap(&array[i], &array[j]);
             }
@@ -67,10 +67,10 @@ int sapXepGiamDan(int array[],int arraySize) {
     }
 }
 //Ham sap xep cac gia tri cua mang tang dan
-int sapXepTangDan(int array[],int arraySize) {
+int sapXepTangDan(int array[],int ktMang) {
 	int i,j;
-    for (i = 0; i < arraySize - 1; i++) {
-        for (j = i + 1; j < arraySize; j++) {
+    for (i = 0; i < ktMang - 1; i++) {
+        for (j = i + 1; j < ktMang; j++) {
             if (array[i] > array[j]) {
                 swap(&array[i], &array[j]);
             }
@@ -78,12 +78,12 @@ int sapXepTangDan(int array[],int arraySize) {
     }
 }
 //Ham tim kiem mang
-int timKiemMang(int array[],int arraySize,int value) {
+int timKiemMang(int array[],int ktMang,int giatri) {
 	int i;
-    for (i = 0; i < arraySize; i++) {
-        if (array[i] == value) {
-            return WORKING;
+    for (i = 0; i < ktMang; i++) {
+        if (array[i] == giatri) {
+            return HOATDONG;
         }
     }
-    return FAILED;
+    return KHONGHOATDONG;
 }
