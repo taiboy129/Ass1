@@ -8,7 +8,7 @@ int g_Array[];
 
 int main() {
     char chon;
-    int arrSize;
+    int ktMang;
     do {
         		printf("\n'1' Khoi tao mang so nguyen");
 				printf("\n'2' In day");
@@ -24,48 +24,48 @@ int main() {
 	switch (chon) {
         case '1': {
                     printf("Nhap so luong phan tu: ");
-                    scanf("%d", &arrSize);
-                    if (khoiTaoMang(arrSize) != FAILED) {
-                        nhapMang(g_Array, arrSize);
+                    scanf("%d", &ktMang);
+                    if (khoiTaoMang(ktMang) != FAILED) {
+                        nhapMang(g_Array, ktMang);
                     }
                     break;
             }
         case '2': {
-                    hienThiMang(g_Array, arrSize);
+                    hienThiMang(g_Array, ktMang);
                     break;
             }
         case '3': {
-                    int position = 0;
-                    int value = 0;
+                    int vitri = 0;
+                    int giatri = 0;
                     printf("Nhap vi tri can chen: ");
-                    scanf("%d", &position);
+                    scanf("%d", &vitri);
                     printf("Nhap gia tri chan chen: ");
-                    scanf("%d", &value);
-                    themPhanTu(g_Array, &arrSize, value, position);
-                    printf("array size: %d", arrSize);
+                    scanf("%d", &giatri);
+                    themPhanTu(g_Array, &ktMang, giatri, vitri);
+                    printf("Kich thuoc mang: %d", ktMang);
                     break;
             }
         case '4': {
-                    int position = 0;
+                    int vitri = 0;
                     printf("Nhap vi tri can xoa: ");
-                    scanf("%d", &position);
-                    xoaPhanTu(g_Array, &arrSize, position);
-                    printf("array size: %d", arrSize);
+                    scanf("%d", &vitri);
+                    xoaPhanTu(g_Array, &ktMang, vitri);
+                    printf("Kich thuoc mang: %d", ktMang);
                     break;
             }
         case '5': {
-                    sapXepTangDan(g_Array, arrSize);
+                    sapXepTangDan(g_Array, ktMang);
                     break;
             }
         case '6': {
-                    sapXepGiamDan(g_Array, arrSize);
+                    sapXepGiamDan(g_Array, ktMang);
                     break;
             }
         case '7': {
-                    int value = 0;
+                    int giatri = 0;
                     printf("Nhap gia tri can tim: ");
-                    scanf("%d", &value);
-                    int result = timKiemMang(g_Array, arrSize, value);
+                    scanf("%d", &giatri);
+                    int result = timKiemMang(g_Array, ktMang, giatri);
                     if (result == WORKING) {
                         printf("gia tri can tim ton tai trong mang");
                     } else {
