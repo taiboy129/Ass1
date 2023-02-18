@@ -10,7 +10,7 @@ int main() {
     char chon;
     int ktMang;
     do {
-        		printf("\n'1' Khoi tao mang so nguyen");
+        			printf("\n'1' Khoi tao mang so nguyen");
 				printf("\n'2' In day");
 				printf("\n'3' Them phan tu vao day tai vi tri k");
 				printf("\n'4' Xoa phan tu tai vi tri k");
