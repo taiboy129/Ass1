@@ -82,6 +82,6 @@ int main() {
                     break;
 			}
         }
-    } while (choose != '8');
+    } while (chon != '8');
     return 0;
 }
